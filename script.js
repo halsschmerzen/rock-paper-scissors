@@ -13,7 +13,6 @@ function getComputerChoice() {
 
 function playRound(playerSelection, computerSelection) {
   playerSelection = playerSelection.toLowerCase();
-
   switch (playerSelection) {
     case "rock":
       return computerSelection === 1
@@ -43,9 +42,8 @@ function playRound(playerSelection, computerSelection) {
 // const playerSelection = prompt("Enter your choice: Rock - Paper - Scissors");
 
 function game() {
-  const computerSelection = getComputerChoice();
-  const playerSelection = prompt("Enter your choice: Rock - Paper - Scissors");
-  console.log(playRound(playerSelection, computerSelection));
+//  const computerSelection = getComputerChoice();
+    // Removed initialization of the game for preparation of Web-Based Application
 }
 
 game()
