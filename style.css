@@ -2,4 +2,38 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    
+}
+
+body  {
+    background-color: rgba(128, 128, 128, 0.336);
+}
+
+
+#container {
+    margin-top: 4rem;
+    /* border: 2px solid red; */
+    /* background-color: gray; */
+    display: flex;
+    justify-content: space-evenly;
+}
+
+#container button {
+    padding: 48px;
+    border: none;
+    border-radius: 16px;
+    font-family:'Courier New', Courier, monospace;
+    font-size: 32px;
+    color: white;
+    border:  4px solid White;
+    background-color:black;
+    cursor: pointer;
+}
+
+#score {
+    margin-top: 4rem;
+    text-align: center;
+    font-size: 64px;
+    font-weight: bold;
+    font-family: 'Courier New', Courier, monospace;
 }

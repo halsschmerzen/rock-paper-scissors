@@ -4,10 +4,21 @@ let computerScore = 0;
 // DOM Selection for Web-Application
 const container = document.querySelector("#container");
 // Generate a text for each the AI, the Player and the current score
-const resultText = document.createElement("div");
+const scoreContainer = document.querySelector("#score");
 
-resultText.classList.add("resultText");
-container.appendChild(resultText);
+const playerText = document.createElement("p");
+const computerText = document.createElement("p");
+const tieText = document.createElement("p");
+const scoreText = document.createElement("p");
+
+playerText.textContent = `Player: ${playerScore}`;
+computerText.textContent = `AI: ${computerScore}`;
+scoreText.textContent = '';
+
+scoreContainer.appendChild(playerText);
+scoreContainer.appendChild(computerText);
+scoreContainer.appendChild(tieText);
+scoreContainer.appendChild(scoreText);
 
 function getComputerChoice() {
   let choice = Math.floor(Math.random() * 3);
@@ -51,17 +62,20 @@ function playRound(playerSelection, computerSelection) {
 }
 
 function updateScore() {
-
+  playerText.textContent = `Player: ${playerScore}`;
+  computerText.textContent = `AI: ${computerScore}`;
+  // tieText.textContent = ''
+  scoreText.textContent = '';
 }
 
 function checkGameEnd() {
   if(playerScore >= 5 || computerScore >= 5) {
     if(playerScore > computerScore) {
-      resultText.textContent = "You won against the AI 5 times! You are the best!"
-    } else if(computerChoice > playerScore) {
-      resultText.textContent = "AI is conspiring against us! You lost!"
+      scoreText.textContent = "You won against the AI 5 times! AI will never overtake us!"
+    } else if(computerScore > playerScore) {
+      scoreText.textContent = "AI is conspiring against us! You lost!"
     } else {
-      resultText.textContent = "Guess it's a tie. The world is even now. Ying and Yang."
+      scoreText.textContent = "Guess it's a tie. The world is even now. Ying and Yang."
     }
   }
 }
@@ -78,7 +92,7 @@ mainButtons.forEach((button) => {
     // I want to check what button was clicked simply by checking the given HTML Text
     // Content, and if it matches the clicked Button.
     updateScore();
-    resultText.textContent = roundResult;
+    // scoreText.textContent = roundResult;
 
     checkGameEnd();
   });
